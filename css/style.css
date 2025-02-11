@@ -1,0 +1,802 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Light theme variables */
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --text-color: #333;
+    --background-color: #fff;
+    --nav-bg: rgba(255, 255, 255, 0.1);
+    --logo-display: none;
+    /* Changed this */
+    --logo-dark-display: block;
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --primary-color: #0d6efd;
+    --secondary-color: #0dcaf0;
+    --text-color: #fff;
+    --background-color: #1a1a1a;
+    --nav-bg: rgba(0, 0, 0, 0.1);
+    --logo-display: block;
+    --logo-dark-display: none;
+}
+
+.nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin-left: 2rem;
+}
+
+.theme-toggle .fa-moon {
+    display: none;
+}
+
+/* When dark theme is active */
+[data-theme="dark"] .theme-toggle .fa-sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    display: block;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.nav_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_logo .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.5rem;
+}
+
+.nav_logo img {
+    height: 35px;
+}
+
+
+.logo span {
+    color: var(--text-color);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+
+.logo-white {
+    display: var(--logo-display);
+}
+
+.logo-dark {
+    display: var(--logo-dark-display);
+}
+
+.logo span {
+    color: var(--text-color);
+}
+
+.nav_links a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    background: var(--primary-color);
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+}
+
+.nav_links.active {
+    background: var(--nav-bg);
+}
+
+/* Update the theme-toggle and hamburger-menu colors */
+.theme-toggle,
+.hamburger-menu {
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--text-color);
+    /* Use CSS variable instead of hard-coded color */
+    transition: color 0.3s ease;
+    /* Add smooth transition */
+}
+
+/* Update dark theme specific styles */
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .hamburger-menu {
+    color: #fff;
+    /* Set white color for dark theme */
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    display: block;
+    color: #fff;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    display: none;
+}
+
+.nav_links a {
+    color: var(--text-color);
+}
+
+.nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.theme-toggle,
+.hamburger-menu {
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.nav_links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.nav_links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav_links a:hover {
+    color: #007bff;
+}
+
+.nav-btn-link {
+    display: none;
+}
+
+.nav-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+
+/* Main Container Styles */
+.main_container {
+    min-height: 100vh;
+    padding: 7rem 5% 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg,
+            rgba(255, 192, 203, 0.3),
+            /* Light pink */
+            rgba(255, 218, 224, 0.4),
+            /* Lighter pink */
+            rgba(255, 240, 245, 0.5)
+            /* Very light pink */
+        );
+}
+
+[data-theme="dark"] .main_container {
+    background: linear-gradient(135deg,
+            rgba(26, 26, 26, 0.95),
+            rgba(30, 30, 40, 0.98));
+}
+
+.main_container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg,
+            rgba(255, 182, 193, 0.1),
+            /* Light pink */
+            rgba(255, 218, 224, 0.1),
+            /* Lighter pink */
+            rgba(255, 240, 245, 0.1));
+    z-index: 0;
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.main-desc,
+.main_image {
+    position: relative;
+    z-index: 1;
+}
+
+.main-desc {
+    flex: 1;
+    max-width: 600px;
+}
+
+.main-desc h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 110, 253, 0.1);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 8px 8px 0;
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.main-desc h2 .emoji {
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.main-desc h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    position: relative;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /* Add this to fix gradient text */
+    width: 100%;
+    /* Ensure full width */
+}
+
+/* Add decorative underline */
+.main-desc h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* Animation for the h1 */
+.animate-slide-down {
+    opacity: 0;
+    animation: slideDown 1s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.section_desc {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.main_image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+}
+
+.main_image::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(45deg, rgba(13, 110, 253, 0.15), rgba(13, 202, 240, 0.15));
+    border-radius: 50%;
+    bottom: 0;
+    filter: blur(40px);
+    z-index: -1;
+}
+
+.main_image img {
+    max-width: 110%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+    animation: carFloat 4s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes carMove {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-car-move {
+    animation: carMove 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes carFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.02);
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .main_image::before {
+    background: linear-gradient(45deg, rgba(13, 110, 253, 0.2), rgba(13, 202, 240, 0.2));
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .main_image img {
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+/* Add this to your responsive.css for mobile devices */
+@media (max-width: 768px) {
+    .main_container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    .main-desc h1 {
+        font-size: 2.2rem;
+    }
+
+    .main-desc h2 {
+        font-size: 1rem;
+    }
+
+    .section_desc {
+        font-size: 1rem;
+    }
+
+    .main_image {
+        margin-top: 2rem;
+    }
+
+    .main_image img {
+        width: 90%;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Classes */
+.animate-fade {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.animate-slide-down {
+    opacity: 0;
+    animation: slideDown 1.5s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.animate-slide-up {
+    opacity: 0;
+    animation: slideUp 1.5s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Optional: Add this if you want to prevent animations on mobile devices */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-fade,
+    .animate-slide-down,
+    .animate-slide-up {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+
+.searching-panel {
+    max-width: 1000px;
+    margin: -52px auto 0;
+    /* Reduced from -50px to -30px */
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-end;
+    /* Align items to bottom */
+    justify-content: space-between;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.searching-panel.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.searching-panel.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.searching-panel {
+    animation-delay: 0.3s;
+}
+
+.searching-panel>div {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.searching-panel label {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.searching-panel input {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.searching-panel input:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+}
+
+[data-theme="dark"] .searching-panel input {
+    background: rgba(40, 40, 50, 0.95);
+    border: none;
+    color: #fff;
+}
+
+[data-theme="dark"] .searching-panel input:focus {
+    background: rgba(45, 45, 55, 1);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+}
+
+.search-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 0.6rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    margin: 0;
+    height: fit-content;
+    align-self: flex-end;
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Dark theme styles */
+[data-theme="dark"] .searching-panel {
+    background: rgba(30, 30, 40, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .searching-panel input {
+    background: rgba(40, 40, 50, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+
+.main-text {
+    max-width: 1000px;
+    margin: 5rem auto;
+    padding: 0 1rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.main-text h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.main-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.main-text p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-grid {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.about-grid.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.about-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.about-card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-card:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.about-card:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.about-card:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.about-card span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.about-card i {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.about-card h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Hover effects */
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme styles */
+[data-theme="dark"] .about-card {
+    background: rgba(40, 40, 50, 0.95);
+}
+
+/* Location card */
+.about-card:nth-child(1) span {
+    background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+}
+
+.about-card:nth-child(1) i {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
+
+/* Date card */
+.about-card:nth-child(2) span {
+    background: linear-gradient(45deg, #4ECDC4, #45B7AF);
+}
+
+.about-card:nth-child(2) i {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(78, 205, 196, 0.3);
+}
+
+/* Book car card */
+.about-card:nth-child(3) span {
+    background: linear-gradient(45deg, #A17FE0, #9066CD);
+}
+
+.about-card:nth-child(3) i {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(161, 127, 224, 0.3);
+}
+
+/* Hover effects */
+.about-card:hover span {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .about-card span {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

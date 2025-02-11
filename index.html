@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav_header">
+                <div class="nav_logo">
+                    <a href="#" class="logo">
+                        <img src="assets/logo-white.png" alt="logo" class="logo-white">
+                        <img src="assets/logo-dark.png" alt="logo" class="logo-dark">
+                        <span>Car Rental</span>
+                    </a>
+                </div>
+                <div class="nav_icons">
+                    <div class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="hamburger-menu" id="menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav_links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#deals">Rental Deals</a></li>
+                <li><a href="#choose">Why Choose Us</a></li>
+                <li><a href="#client">Testimonials</a></li>
+                <li class="nav-btn-link">
+                    <button class="btn">Register</button>
+                </li>
+            </ul>
+            <div class="nav-btn">
+                <button class="btn">Register</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="main_container" id="home">
+            <div class="main-desc animate-fade">
+                <h2 class="animate-slide-down">👍 100% Trusted car rental platform in India</h2>
+                <h1 class="animate-slide-down gradient-text" style="--delay: 0.2s">FAST AND EASY WAY TO RENT A CAR</h1>
+                <p class="section_desc animate-slide-down" style="--delay: 0.4s">Discover a seamless car rental
+                    experience with us. Choose from a range of premium vehicles to suit your style and needs, and hit
+                    the road with confidence. Quick, easy, and reliable - rent your ride today!</p>
+            </div>
+            <div class="main_image animate-slide-up animate-car-move">
+                <img src="assets/header.png" alt="header" class="car-entrance">
+            </div>
+        </div>
+        <div class="searching-panel">
+            <div>
+                <label for="location">Pick up & Return location</label>
+                <input type="text" id="location" placeholder="Kolkata,Contai">
+            </div>
+            <div>
+                <label for="pickup">Pick up date</label>
+                <input type="text" id="pickup" placeholder="Aug 16, 10:00 AM">
+            </div>
+            <div>
+                <label for="return">Return date</label>
+                <input type="text" id="return" placeholder="Aug 16, 10:00 AM">
+            </div>
+            <button class="search-btn">Search</button>
+        </div>
+        <div class="main-text">
+            <h2 class="center-text">How it work</h2>
+            <p>Renting a car with us is simple! Choose your vehicle, pick your dates, and complete your booking. We'll
+                handle the rest, ensuring a smooth start to your journey.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <span>
+                    <i class="ri-map-pin-2-fill"></i>
+                </span>
+                <h4>Choose Location</h4>
+                <p>Select from a variety of pick-up locations that best suit your needs, whether it's close to home,
+                    work, or airport.</p>
+            </div>
+            <div class="about-card">
+                <span>
+                    <i class="ri-calendar-event-fill"></i>
+                </span>
+                <h4>Pick-up Date</h4>
+                <p>Choose the exact date and time for your car pick-up, ensuring that your vehicle is ready when you
+                    need it..</p>
+            </div>
+            <div class="about-card">
+                <span>
+                    <i class="ri-roadster-fill"></i>
+                </span>
+                <h4>Book your Car</h4>
+                <p>Complete your booking with just a few clicks, and we'll prepare your vehicle to ensure a hassle-free
+                    pick-up.</p>
+            </div>
+        </div>
+
+    </main>
+    <script src="js/script.js"></script>
+    <script src="js/scroll.js"></script>
+</body>
+
+</html>
