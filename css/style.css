@@ -800,3 +800,869 @@ nav {
 [data-theme="dark"] .about-card span {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* Deals  */
+
+.deals {
+    padding: 5rem 0;
+    position: relative;
+    background: linear-gradient(135deg,
+            rgba(255, 240, 245, 0.9) 0%,
+            rgba(255, 228, 240, 0.9) 50%,
+            rgba(255, 218, 235, 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle animated background elements */
+.deals::before,
+.deals::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.deals::before {
+    background: radial-gradient(circle,
+            rgba(255, 192, 203, 0.2) 0%,
+            rgba(255, 182, 193, 0.1) 50%,
+            transparent 70%);
+    top: -200px;
+    left: -200px;
+    animation: floatBubble 15s infinite alternate;
+}
+
+.deals::after {
+    background: radial-gradient(circle,
+            rgba(255, 182, 193, 0.15) 0%,
+            rgba(255, 192, 203, 0.1) 50%,
+            transparent 70%);
+    bottom: -200px;
+    right: -200px;
+    animation: floatBubble 20s infinite alternate-reverse;
+}
+
+/* Animation for the background elements */
+@keyframes floatBubble {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .deals {
+    background: linear-gradient(135deg,
+            rgba(45, 35, 40, 0.95) 0%,
+            rgba(40, 30, 35, 0.95) 50%,
+            rgba(35, 25, 30, 0.95) 100%);
+}
+
+[data-theme="dark"] .deals::before {
+    background: radial-gradient(circle,
+            rgba(255, 192, 203, 0.05) 0%,
+            rgba(255, 182, 193, 0.03) 50%,
+            transparent 70%);
+}
+
+[data-theme="dark"] .deals::after {
+    background: radial-gradient(circle,
+            rgba(255, 182, 193, 0.04) 0%,
+            rgba(255, 192, 203, 0.02) 50%,
+            transparent 70%);
+}
+
+/* Ensure content stays above the background */
+.section-container {
+    position: relative;
+    z-index: 1;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.deals-header {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.deals-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.deals-desc {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 2rem auto;
+    line-height: 1.6;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .deals {
+    background: linear-gradient(135deg,
+            rgba(30, 30, 40, 0.95),
+            rgba(20, 20, 30, 0.95));
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.deals-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.deals-tabs .btn {
+    background: transparent;
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem;
+    border: 2px solid rgba(0, 123, 255, 0.2);
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.deals-tabs .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.deals-tabs .btn:hover::before {
+    width: 100%;
+}
+
+.deals-tabs .btn:hover {
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+.deals-tabs .btn.active {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+.deals-tabs .btn.active::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(35deg);
+    top: -100%;
+    left: -100%;
+    transition: all 0.6s;
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+[data-theme="dark"] .deals-tabs .btn {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .deals-tabs .btn:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tab-content {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.tab-content.active {
+    display: grid;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.deals-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.deals-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.deals-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.deals-card:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+.deals-rating {
+    margin: 1rem 0;
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.deals-rating span:last-child {
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.deals-card h4 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.deals-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.deals-card-grid div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.deals-card-grid div span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 123, 255, 0.1);
+    border-radius: 50%;
+    color: var(--primary-color);
+}
+
+.deals-card hr {
+    border: none;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+.deals-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.deals-card-footer h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.deals-card-footer h3 span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.deals-card-footer a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.deals-card-footer a:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .deals-card {
+    background: rgba(40, 40, 50, 0.95);
+}
+
+[data-theme="dark"] .deals-card hr {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.section-container {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.section-container.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.deals-tabs {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+    transition-delay: 0.2s;
+}
+
+.deals-tabs.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tab-content.active {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealCards 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.deals-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+}
+
+.deals-card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation for staggered card reveal */
+@keyframes revealCards {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add delay for each card */
+.deals-card:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.deals-card:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.deals-card:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.nav_links a {
+    position: relative;
+    color: var(--text-color);
+}
+
+.nav_links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+}
+
+.nav_links a:hover::after,
+.nav_links a.active::after {
+    width: 100%;
+}
+
+.nav_links a.active {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.choose-us {
+    padding: 6rem 2rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
+}
+
+.choose-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 600px;
+    /* Reduced from 800px */
+    padding: 2rem;
+}
+
+.choose-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: floatImage 3s ease-in-out infinite;
+    margin-top: -80px;
+    /* Increased negative top margin */
+    margin-left: -100px;
+    /* Added negative left margin */
+    transform: scale(1.1);
+    /* A
+    /* Added negative margin to move car up */
+}
+
+.choose-img img {
+    width: 140%;
+    height: auto;
+    object-fit: contain;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+    /* Added negative margin to adjust bottom spacing */
+}
+
+@keyframes floatImage {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1.1);
+    }
+
+    50% {
+        transform: translate(0, -15px) scale(1.12);
+        /* Reduced vertical movement */
+    }
+}
+
+.choose-img:hover img {
+    transform: scale(1.25);
+    /* Slight zoom on hover */
+}
+
+.choose-text {
+    padding: 2rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-height: 600px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) rgba(255, 255, 255, 0.1);
+}
+
+/* Webkit scrollbar styles */
+.choose-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.choose-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.choose-text::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.choose-text::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff6b6b, var(--primary-color));
+}
+
+/* Add fade effect at top and bottom */
+.choose-text::before,
+.choose-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 30px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.choose-text::before {
+    top: 0;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.choose-text::after {
+    bottom: 0;
+    background: linear-gradient(to top,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0) 100%);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .choose-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .choose-text::before {
+    background: linear-gradient(to bottom,
+            rgba(30, 30, 40, 0.95) 0%,
+            rgba(30, 30, 40, 0) 100%);
+}
+
+[data-theme="dark"] .choose-text::after {
+    background: linear-gradient(to top,
+            rgba(30, 30, 40, 0.95) 0%,
+            rgba(30, 30, 40, 0) 100%);
+}
+
+.choose-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.choose-text>p {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.choose-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.choose-card {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.choose-card span {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.choose-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.choose-card p {
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Dark theme styles for choose-us section */
+[data-theme="dark"] .choose-us {
+    background: linear-gradient(to bottom,
+            rgba(25, 25, 35, 0.95),
+            rgba(20, 20, 30, 0.95));
+}
+
+[data-theme="dark"] .choose-container {
+    background: transparent;
+}
+
+[data-theme="dark"] .choose-text {
+    background: rgba(30, 30, 40, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .choose-text h2 {
+    background: linear-gradient(45deg, #4a9eff, #6eb4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .choose-text p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .choose-card {
+    background: rgba(35, 35, 45, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .choose-card:hover {
+    background: rgba(40, 40, 50, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .choose-card span {
+    background: linear-gradient(45deg, #3a89ff, #5ca3ff);
+    box-shadow: 0 4px 15px rgba(58, 137, 255, 0.2);
+}
+
+[data-theme="dark"] .choose-card h4 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .choose-card p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .choose-img img {
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3)) brightness(0.9);
+}
+
+/* Dark theme animations */
+@keyframes darkFloatImage {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1.1);
+        filter: brightness(0.9);
+    }
+
+    50% {
+        transform: translate(0, -15px) scale(1.12);
+        filter: brightness(1);
+    }
+}
+
+/* Add these scroll reveal animations */
+.choose-container {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.choose-container.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.choose-img {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease-out;
+    transition-delay: 0.2s;
+}
+
+.choose-img.reveal {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.choose-text {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease-out;
+    transition-delay: 0.4s;
+}
+
+.choose-text.reveal {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.choose-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.choose-card.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add delay for each card */
+.choose-card {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardAppear 0.5s ease forwards;
+}
+
+/* Progressive loading animation for cards */
+@keyframes cardAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add sequential delays to cards */
+.choose-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.choose-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.choose-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.choose-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.choose-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.choose-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Optimize performance */
+.choose-card {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.nav_links li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav_links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+    transition: width 0.3s ease;
+}
+
+.nav_links li a.active {
+    color: var(--primary-color);
+}
+
+.nav_links li a.active::after {
+    width: 100%;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .nav_links li a.active {
+    color: #fff;
+}
+
+/* Reduce animation time for mobile */
+
+/* 
+[data-theme="dark"] .choose-img {
+    animation: darkFloatImage 3s ease-in-out infinite;
+} */
+
+/* Responsive styles */
