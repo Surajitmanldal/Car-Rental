@@ -43,6 +43,10 @@
         transition: all 0.3s ease;
     }
 
+    .hamburger-menu {
+        display: block;
+    }
+
     .nav_links.active {
         display: flex;
         flex-direction: column;
@@ -88,10 +92,6 @@
     .nav-btn-link .btn {
         width: 100%;
         margin: 0.5rem 0;
-    }
-
-    .hamburger-menu {
-        display: block;
     }
 
     /* Animation for menu items */

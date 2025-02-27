@@ -127,16 +127,14 @@ nav {
     color: var(--primary-color);
 }
 
-.btn {
-    background: var(--primary-color);
-}
-
-.btn:hover {
-    background: var(--secondary-color);
-}
-
 .nav_links.active {
     background: var(--nav-bg);
+}
+
+.nav_icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 /* Update the theme-toggle and hamburger-menu colors */
@@ -166,22 +164,7 @@ nav {
     display: none;
 }
 
-.nav_links a {
-    color: var(--text-color);
-}
 
-.nav_icons {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.theme-toggle,
-.hamburger-menu {
-    font-size: 1.25rem;
-    cursor: pointer;
-    color: #333;
-}
 
 .nav_links {
     display: flex;
@@ -214,7 +197,7 @@ nav {
 
 .btn {
     padding: 0.5rem 1.5rem;
-    background: #007bff;
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -223,7 +206,7 @@ nav {
 }
 
 .btn:hover {
-    background: #0056b3;
+    background: var(--secondary-color);
 }
 
 
