@@ -12,7 +12,7 @@ A simple and visually appealing Car Rental website built using **HTML**, **CSS**
 
 ## 📸 Screenshots
 
-![Car Rental Homepage](./screenshots/home.png)
+![Car Rental Homepage](assets/screenshots/home.png)
 *Home page with animated landing section*
 
 ---
