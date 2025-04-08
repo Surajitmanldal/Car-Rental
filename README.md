@@ -6,7 +6,7 @@ A simple and visually appealing Car Rental website built using **HTML**, **CSS**
 
 ## 🌐 Live Demo
 
-👉 [Click here to visit the website](car-rental-applications.netlify.app)
+👉 [Click here to visit the website](https://car-rental-applications.netlify.app/)
 
 ---
 
