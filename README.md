@@ -36,9 +36,6 @@ A simple and visually appealing Car Rental website built using **HTML**, **CSS**
 
 ---
 
-## 📁 Folder Structure
-
-car-rental-website/ ├── index.html ├── style.css ├── script.js ├── /images └── /responsive.css 
 
 
 📫 Contact
